@@ -1,0 +1,211 @@
+[
+  {
+    "name": "abnPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,SVC,LMI,VAL,ACC,AFD",
+    "restriction": [{ "pattern": { "value": "\\d{11}", "transaction": "" } }]
+  },
+  {
+    "name": "acnPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,SVC,LMI,VAL,ACC",
+    "restriction": [{ "pattern": { "value": "\\d{9}", "transaction": "" } }]
+  },
+  {
+    "name": "arbnPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS",
+    "restriction": [{ "pattern": { "value": "\\d{9}", "transaction": "" } }]
+  },
+  {
+    "name": "arsnPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS",
+    "restriction": [{ "pattern": { "value": "\\d{9}", "transaction": "" } }]
+  },
+  {
+    "name": "aubicPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS",
+    "restriction": [{ "pattern": { "value": "\\d{5}", "transaction": "" } }]
+  },
+  {
+    "name": "auPostCodePattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,SVC,LMI,VAL,ACC,AFD,ALA",
+    "restriction": [{ "pattern": { "value": "\\d{4}", "transaction": "" } }]
+  },
+  {
+    "name": "bsbPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,ACC,AFD,ALA,VAL",
+    "restriction": [{ "pattern": { "value": "\\d{6}", "transaction": "" } }]
+  },
+  {
+    "name": "dayOfMonthPattern",
+    "base": "xs:string",
+    "transactions": "CAL,DAS,CNZ,ACC,ACZ,ALA",
+    "restriction": [
+      { "pattern": { "value": "0?[1-9]|[12][0-9]|3[01]", "transaction": "" } }
+    ]
+  },
+  {
+    "name": "emailPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": [{ "pattern": { "value": ".+@.+\\..+", "transaction": "" } }]
+  },
+  {
+    "name": "gicsCodePattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,CNZ",
+    "restriction": [
+      {
+        "pattern": {
+          "value": "\\d{2}(\\d{2})?(\\d{2})?(\\d{2})?",
+          "transaction": ""
+        }
+      }
+    ]
+  },
+  {
+    "name": "ipv4addressPattern",
+    "base": "xs:string",
+    "transactions": "AFD,CAL",
+    "restriction": [
+      {
+        "pattern": {
+          "value": "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}",
+          "transaction": ""
+        }
+      }
+    ]
+  },
+  {
+    "name": "ipv6addressPattern",
+    "base": "xs:string",
+    "transactions": "AFD,CAL",
+    "restriction": [
+      {
+        "pattern": {
+          "value": "([A-Fa-f0-9]{0,4}:){1,7}[A-Fa-f0-9]{0,4}",
+          "transaction": ""
+        }
+      }
+    ]
+  },
+  {
+    "name": "irdNumberPattern",
+    "base": "xs:string",
+    "transactions": "CNZ,ACZ",
+    "restriction": [{ "pattern": { "value": "\\d{8,9}", "transaction": "" } }]
+  },
+  {
+    "name": "mediaTypePattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,CNZ,DAS,LMI,SVC,VAL",
+    "restriction": [
+      { "pattern": { "value": "[A-z]*/[0-9A-z\\.\\-\\+]*", "transaction": "" } }
+    ]
+  },
+  {
+    "name": "nzbicPattern",
+    "base": "xs:string",
+    "transactions": "CNZ",
+    "restriction": [
+      { "pattern": { "value": "[A-z]\\d{6}", "transaction": "" } }
+    ]
+  },
+  {
+    "name": "nzbnPattern",
+    "base": "xs:string",
+    "transactions": "CNZ,ACZ",
+    "restriction": [{ "pattern": { "value": "\\d{13}", "transaction": "" } }]
+  },
+  {
+    "name": "nzPostCodePattern",
+    "base": "xs:string",
+    "transactions": "CNZ,ACZ",
+    "restriction": [{ "pattern": { "value": "\\d{4}", "transaction": "" } }]
+  },
+  {
+    "name": "urlPattern",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,ACZ",
+    "restriction": [{ "pattern": { "value": ".+\\..+", "transaction": "" } }]
+  },
+  {
+    "name": "visaSubclassCodePattern",
+    "base": "xs:string",
+    "transactions": "CAL,ACC,DAS",
+    "restriction": [
+      { "pattern": { "value": "\\d{3}[A-z]?", "transaction": "" } }
+    ]
+  },
+  {
+    "name": "base64BinaryType",
+    "base": "xs:base64Binary",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL",
+    "restriction": []
+  },
+  {
+    "name": "currencyType",
+    "base": "xs:decimal",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "dateTimeType",
+    "base": "xs:dateTime",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "dateType",
+    "base": "xs:date",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "decimalType",
+    "base": "xs:decimal",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "gYearType",
+    "base": "xs:gYear",
+    "transactions": "CAL,CDA,DAS,CNZ,VAL,ACC,AFD,ACZ",
+    "restriction": []
+  },
+  {
+    "name": "integerType",
+    "base": "xs:integer",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "percentType",
+    "base": "xs:decimal",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "referenceType",
+    "base": "xs:IDREF",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "stringType",
+    "base": "xs:string",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  },
+  {
+    "name": "uniqueIDType",
+    "base": "xs:ID",
+    "transactions": "CAL,CDA,DAS,CNZ,SVC,LMI,VAL,ACC,AFD,ACZ,ALA",
+    "restriction": []
+  }
+]

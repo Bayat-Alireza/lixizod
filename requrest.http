@@ -1,0 +1,5 @@
+### 
+GET http://192.168.86.23:3005/transactions/LIXI-Master-Schema.xsd
+
+### 
+GET http://192.168.86.27:3066/transactions/master-2-2-67.xsd

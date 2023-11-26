@@ -1,0 +1,56 @@
+import { appendFile } from "fs/promises"
+import { type LIXIType } from "../index.js"
+import { rootDir } from "../utilities/appUtil.js"
+import path from 'path'
+
+
+const createDecimalExpressions = (lixiTypes: LIXIType[]) => {
+  const result = lixiTypes.reduce<string[]>((acc, cur) => {
+    if (cur.base === 'xs:decimal') {
+      let zExpression = 'z.number()'
+      cur.restriction.forEach((rCur) => {
+        if (Object.hasOwn(rCur, 'fractionDigits')) {
+          (zExpression += `".refine( n => {
+              return n.toString().split( '.' )[ 1 ].length <= ${rCur['minExclusive'].value}}
+          }, { message: 'Max precision is 2 decimal places' } )
+          "`)
+        }
+        if (Object.hasOwn(rCur, 'minExclusive')) {
+          (zExpression += `".gt(${rCur['minExclusive'].value})"`)
+        }
+        if (Object.hasOwn(rCur, 'minInclusive')) {
+          (zExpression += `"gte.lte${rCur['minExclusive'].value}"`)
+        }
+        if (Object.hasOwn(rCur, 'maxExclusive')) {
+          (zExpression += `".lt(${rCur['maxExclusive'].value})"`)
+        }
+        if (Object.hasOwn(rCur, 'maxInclusive')) {
+          (zExpression += `".lte(${rCur['maxExclusive'].value})"`)
+        }
+
+
+      }, [])
+
+      if (cur.name) {
+        acc.push(`export const ${cur.name} = ${zExpression}
+          `.toString())
+
+      }
+    }
+
+    return acc
+  }, [])
+  return result
+}
+
+const createDecimalTypes = async (lixiTypes: LIXIType[]) => {
+  const file = path.join('simpleTypes', 'decimalTypes.ts')
+  const enumExpression = createDecimalExpressions(lixiTypes)
+  await appendFile(file, "import {z} from 'zod'\n")
+  enumExpression.forEach(async (ee) => {
+    await appendFile(file, ee)
+  })
+}
+
+
+export default createDecimalTypes
