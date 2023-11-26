@@ -79,18 +79,18 @@ const main = async () => {
     // writeFile('LIXIType.json', JSON.stringify(lixiTypes))
     // writeFile('LIXITypeNonToken.json', JSON.stringify(LIXITypeNonToken))
 
-
-    await createZodEnums(lixiTypes)
-    await createRegexPattern(lixiTypes)
-    await createIntegerTypes(lixiTypes)
-    await createDecimalTypes(lixiTypes)
-    await createStringTypes(lixiTypes)
-    await createBase64BinaryTypes(lixiTypes)
-    await createDateTimeTypes(lixiTypes)
-    await createDateTypes(lixiTypes)
-    await createGyearTypes(lixiTypes)
-    await createIdTypes(lixiTypes)
-    await createIDREFTypes(lixiTypes)
+    // Uncoment below to create LIXI types
+    // await createZodEnums(lixiTypes)
+    // await createRegexPattern(lixiTypes)
+    // await createIntegerTypes(lixiTypes)
+    // await createDecimalTypes(lixiTypes)
+    // await createStringTypes(lixiTypes)
+    // await createBase64BinaryTypes(lixiTypes)
+    // await createDateTimeTypes(lixiTypes)
+    // await createDateTypes(lixiTypes)
+    // await createGyearTypes(lixiTypes)
+    // await createIdTypes(lixiTypes)
+    // await createIDREFTypes(lixiTypes)
 
     console.log((mainSchema.getItemsByLocalName('xs:element'))[1].getAttribute('name')?.value())
     console.log(mainSchema.getItemByPath('Package.Content.Account.Fees.Fee.Type'))
@@ -104,10 +104,9 @@ const main = async () => {
     console.log((lixiElement.inlineAttributes))
 
 
-    z.string().u
 
-    const mySchema = z.string().regex(new RegExp('^-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$'), 'Not a valid "gYear"')
-    console.log(mySchema.parse('2002-14:00'))
+    // const mySchema = z.string().regex(new RegExp('^-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$'), 'Not a valid "gYear"')
+    // console.log(mySchema.parse('2002-14:00'))
     // console.log(gYearType.safeParse('2002-14:001'))
   } catch (error) {
     console.log(error)

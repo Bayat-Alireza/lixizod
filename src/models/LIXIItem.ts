@@ -6,7 +6,7 @@ import { NS } from "./types.js";
 
 interface InlineAttributeHelper<U> {
     get: <k extends keyof U>(key: k) => string | undefined
-    attributes: <k extends keyof U>() => U
+    // attributes: <k extends keyof U>() => U
 }
 interface AnnotationHelper<T> {
     get: <k extends keyof T>(key: k) => string | undefined
@@ -31,9 +31,9 @@ export class LIXIItem<T, U> {
         public inlineAttributeHelper: InlineAttributeHelper<U>
     ) { }
 
-    get inlineAttributes(): U {
-        return this.inlineAttributeHelper.attributes()
-    }
+    // get inlineAttributes(): U {
+    //     return this.inlineAttributeHelper.attributes()
+    // }
 
     annotation = <k extends keyof T>(key: k): T[k] => {
         return this.annotationHelper.get(key) as T[k];

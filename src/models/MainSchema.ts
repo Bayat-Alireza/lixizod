@@ -28,9 +28,13 @@ class MainSchema {
   mainDoc: libxml.XMLDocument
   constructor(public mainSchema: string | Buffer) {
     this.mainDoc = libxml.parseXml(mainSchema)
-    this.XMLNamespaces = this.mainDoc.root().namespaces(true)
+    this.XMLNamespaces = this.mainDoc.root()?.namespaces(true)||[]
     this.ns = this.XMLNamespaces.reduce<{ [ns: string]: string }>((acc, cur) => {
-      acc[cur.prefix()] = cur.href()
+      const prefix = cur.prefix()
+      if(prefix){
+
+        acc[prefix] = cur.href()
+      }
       return acc
     }, {})
   }
